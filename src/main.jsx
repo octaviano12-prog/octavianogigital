@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, CheckCircle, Code2, Globe2, Laptop, LineChart, MessageCircle, Rocket, Search, ShoppingCart, Sparkles, Star, Target, Zap } from 'lucide-react';
+import { ArrowRight, Building2, CheckCircle, Code2, Globe2, Laptop, Layers3, LineChart, Mail, MessageCircle, Rocket, Search, ShieldCheck, ShoppingCart, Sparkles, Star, Target, Users, Zap } from 'lucide-react';
 import './style.css';
 
 const whatsappNumber = '5518991178792';
@@ -17,11 +17,26 @@ function App() {
     { icon: MessageCircle, title: 'Integração WhatsApp', text: 'Botões, chamadas e caminhos rápidos para transformar visitantes em conversas comerciais.' },
   ];
 
+  const audiences = ['Indústrias', 'Metalúrgicas', 'Oficinas', 'Prestadores de serviço', 'Pet shops', 'Clínicas', 'Comércios locais', 'Profissionais liberais'];
+
+  const plans = [
+    { name: 'Essencial', label: 'Presença inicial', price: 'Sob consulta', text: 'Ideal para empresas que precisam começar na internet com uma apresentação profissional.', items: ['Site de até 5 seções', 'Layout responsivo', 'Botão de WhatsApp', 'SEO básico', 'Publicação na hospedagem'] },
+    { name: 'Profissional', label: 'Mais vendido', price: 'Sob consulta', text: 'Para empresas que querem uma presença digital mais forte, com portfólio, serviços e estratégia.', items: ['Tudo do Essencial', 'Galeria ou portfólio', 'Google Maps', 'Copy comercial', 'Integração com redes sociais'], featured: true },
+    { name: 'Premium', label: 'Sob medida', price: 'Sob consulta', text: 'Para projetos avançados com sistema, painel administrativo, banco de dados e automações.', items: ['Sistema web personalizado', 'Login e painel admin', 'Banco de dados', 'Dashboard', 'Integrações e automações'] },
+  ];
+
   const portfolio = [
     'Sites para indústrias e metalúrgicas',
     'Portais para prestadores de serviço',
     'Sistemas administrativos personalizados',
     'Projetos para pet shops, clínicas e comércios',
+  ];
+
+  const steps = [
+    'Entendimento do seu negócio',
+    'Planejamento da estrutura do site',
+    'Criação do layout e textos',
+    'Publicação, testes e suporte inicial',
   ];
 
   return (
@@ -41,6 +56,7 @@ function App() {
           </div>
           <nav>
             <a href="#servicos">Serviços</a>
+            <a href="#planos">Planos</a>
             <a href="#portfolio">Portfólio</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
@@ -106,7 +122,42 @@ function App() {
         </div>
       </section>
 
-      <section id="portfolio" className="section dark-section">
+      <section className="section audience-section">
+        <div className="container">
+          <div className="section-title">
+            <span>Para quem fazemos</span>
+            <h2>Sites e sistemas para empresas que precisam passar confiança.</h2>
+          </div>
+          <div className="audience-grid">
+            {audiences.map((item) => <div key={item}><Building2 size={18} /> {item}</div>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="planos" className="section dark-section">
+        <div className="container">
+          <div className="section-title">
+            <span>Planos</span>
+            <h2>Escolha o melhor ponto de partida para seu projeto.</h2>
+          </div>
+          <div className="plans-grid">
+            {plans.map((plan) => (
+              <article className={`plan-card ${plan.featured ? 'featured' : ''}`} key={plan.name}>
+                <div className="plan-label">{plan.label}</div>
+                <h3>{plan.name}</h3>
+                <strong>{plan.price}</strong>
+                <p>{plan.text}</p>
+                <ul>
+                  {plan.items.map((item) => <li key={item}><CheckCircle size={18} /> {item}</li>)}
+                </ul>
+                <a className="btn btn-full" href={whatsappLink} target="_blank" rel="noreferrer">Pedir orçamento</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" className="section">
         <div className="container portfolio-grid">
           <div>
             <div className="section-title left">
@@ -123,7 +174,19 @@ function App() {
         </div>
       </section>
 
-      <section id="sobre" className="section about">
+      <section className="section process-section">
+        <div className="container">
+          <div className="section-title">
+            <span>Processo</span>
+            <h2>Do planejamento à publicação com clareza.</h2>
+          </div>
+          <div className="steps-grid">
+            {steps.map((step, index) => <div className="step-card" key={step}><span>{String(index + 1).padStart(2, '0')}</span><h3>{step}</h3></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" className="section about dark-section">
         <div className="container about-grid">
           <div className="about-card">
             <strong>Octaviano Cesar Ribeiro</strong>
@@ -147,13 +210,21 @@ function App() {
         </div>
       </section>
 
+      <section className="section benefits-section">
+        <div className="container benefits-grid">
+          <article><ShieldCheck /><h3>Credibilidade</h3><p>Um site profissional aumenta a confiança antes do primeiro contato.</p></article>
+          <article><Users /><h3>Mais contatos</h3><p>Chamadas claras para WhatsApp, orçamento e apresentação dos serviços.</p></article>
+          <article><Layers3 /><h3>Estrutura escalável</h3><p>Comece com site e evolua para sistema, dashboard e automações.</p></article>
+        </div>
+      </section>
+
       <section id="contato" className="cta">
         <div className="container cta-box">
           <h2>Pronto para criar o site profissional da sua empresa?</h2>
           <p>Solicite um orçamento e receba uma proposta personalizada para seu negócio.</p>
           <div className="contact-row">
             <a className="btn" href={whatsappLink} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
-            <a className="email" href="mailto:octaviano12@gmail.com">octaviano12@gmail.com</a>
+            <a className="email" href="mailto:octaviano12@gmail.com"><Mail size={18} /> octaviano12@gmail.com</a>
           </div>
         </div>
       </section>
