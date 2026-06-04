@@ -47,19 +47,25 @@ h1 { font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: .95; letter-spacing: -0
 .card-list { display: grid; gap: 12px; }
 .card-list div { display: flex; gap: 10px; align-items: center; background: rgba(255,255,255,.06); padding: 14px; border-radius: 16px; color: #e2e8f0; }
 
+.stats-band { padding: 34px 0; background: linear-gradient(90deg, rgba(56,189,248,.11), rgba(214,168,79,.10)); border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stats-grid div { padding: 20px; border-radius: 22px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); text-align: center; }
+.stats-grid strong { display: block; font-size: 1.8rem; color: #d6a84f; }
+.stats-grid span { display: block; color: #cbd5e1; margin-top: 6px; font-weight: 700; }
+
 .section { padding: 110px 0; }
 .section-title { text-align: center; max-width: 840px; margin: 0 auto 54px; }
 .section-title.left { text-align: left; margin-left: 0; }
 .section-title span { color: #d6a84f; text-transform: uppercase; letter-spacing: .18em; font-weight: 900; font-size: .82rem; }
 .section-title h2 { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.05; margin: 14px 0 0; letter-spacing: -0.04em; }
-.services-grid, .plans-grid, .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.service-card, .plan-card, .benefits-grid article, .step-card { padding: 32px; border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)); border: 1px solid rgba(255,255,255,.11); transition: .25s ease; box-shadow: 0 20px 60px rgba(0,0,0,.14); }
-.service-card:hover, .plan-card:hover, .benefits-grid article:hover, .step-card:hover { transform: translateY(-6px); border-color: rgba(214,168,79,.5); }
+.services-grid, .plans-grid, .benefits-grid, .portfolio-cards, .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card, .plan-card, .benefits-grid article, .step-card, .portfolio-cards article, .testimonials-grid article { padding: 32px; border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)); border: 1px solid rgba(255,255,255,.11); transition: .25s ease; box-shadow: 0 20px 60px rgba(0,0,0,.14); }
+.service-card:hover, .plan-card:hover, .benefits-grid article:hover, .step-card:hover, .portfolio-cards article:hover, .testimonials-grid article:hover { transform: translateY(-6px); border-color: rgba(214,168,79,.5); }
 .service-card svg, .benefits-grid svg { color: #38bdf8; }
-.service-card h3, .benefits-grid h3 { font-size: 1.35rem; margin: 18px 0 10px; }
-.service-card p, .muted, .about p, .cta p, .plan-card p, .benefits-grid p { color: #cbd5e1; line-height: 1.75; }
+.service-card h3, .benefits-grid h3, .portfolio-cards h3 { font-size: 1.35rem; margin: 18px 0 10px; }
+.service-card p, .muted, .about p, .cta p, .plan-card p, .benefits-grid p, .portfolio-cards p, .testimonials-grid p { color: #cbd5e1; line-height: 1.75; }
 .dark-section { background: #0b1424; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
-.audience-section, .process-section { background: radial-gradient(circle at 50% 0%, rgba(56,189,248,.08), transparent 35%), #07111f; }
+.audience-section, .process-section, .portfolio-section { background: radial-gradient(circle at 50% 0%, rgba(56,189,248,.08), transparent 35%), #07111f; }
 .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .audience-grid div { display: flex; align-items: center; gap: 10px; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #e2e8f0; font-weight: 700; }
 .audience-grid svg { color: #d6a84f; }
@@ -72,10 +78,11 @@ h1 { font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: .95; letter-spacing: -0
 .plan-card ul { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; flex: 1; }
 .plan-card li { display: flex; align-items: center; gap: 10px; color: #e2e8f0; }
 .plan-card li svg { color: #22c55e; flex: 0 0 auto; }
-.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.portfolio-list { display: grid; gap: 14px; }
-.portfolio-list div { display: flex; align-items: center; gap: 12px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); }
-.portfolio-list svg { color: #d6a84f; }
+.portfolio-thumb { height: 180px; border-radius: 22px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(56,189,248,.22), rgba(214,168,79,.20)); border: 1px solid rgba(255,255,255,.10); margin-bottom: 22px; }
+.portfolio-thumb svg { width: 58px; height: 58px; color: #d6a84f; }
+.testimonials-grid article { min-height: 250px; display: flex; flex-direction: column; justify-content: space-between; }
+.stars { color: #facc15; letter-spacing: .12em; margin-bottom: 18px; }
+.testimonials-grid strong { color: #f8fafc; margin-top: 18px; display: block; }
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: steps; }
 .step-card span { color: #d6a84f; font-size: .9rem; font-weight: 900; letter-spacing: .12em; }
 .step-card h3 { font-size: 1.25rem; line-height: 1.25; margin: 18px 0 0; }
@@ -99,9 +106,9 @@ footer { padding: 34px 0; border-top: 1px solid rgba(255,255,255,.08); color: #9
 @media (max-width: 1000px) {
   nav { display: none; }
   .hero { min-height: auto; padding: 80px 0; }
-  .hero-grid, .portfolio-grid, .about-grid { grid-template-columns: 1fr; }
-  .services-grid, .plans-grid, .benefits-grid { grid-template-columns: 1fr; }
-  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .services-grid, .plans-grid, .benefits-grid, .portfolio-cards, .testimonials-grid { grid-template-columns: 1fr; }
+  .stats-grid, .audience-grid { grid-template-columns: repeat(2, 1fr); }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .checks { grid-template-columns: 1fr; }
   .plan-card.featured { transform: none; }
@@ -117,7 +124,7 @@ footer { padding: 34px 0; border-top: 1px solid rgba(255,255,255,.08); color: #9
   .hero { padding: 56px 0; }
   .hero-card { transform: none; }
   .screen { min-height: auto; padding: 24px; }
-  .audience-grid, .steps-grid { grid-template-columns: 1fr; }
+  .stats-grid, .audience-grid, .steps-grid { grid-template-columns: 1fr; }
   .section { padding: 76px 0; }
   .cta-box { padding: 44px 20px; }
 }
