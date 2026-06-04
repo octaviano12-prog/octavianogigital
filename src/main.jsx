@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, Building2, CheckCircle, Code2, Globe2, Laptop, Layers3, LineChart, Mail, MessageCircle, Rocket, Search, ShieldCheck, ShoppingCart, Sparkles, Star, Target, Users, Zap } from 'lucide-react';
+import { ArrowRight, Building2, CheckCircle, Code2, Globe2, Laptop, Layers3, LineChart, Mail, MessageCircle, MonitorSmartphone, Rocket, Search, ShieldCheck, ShoppingCart, Sparkles, Star, Target, Users, Zap } from 'lucide-react';
 import './style.css';
 
 const whatsappNumber = '5518991178792';
@@ -26,10 +26,22 @@ function App() {
   ];
 
   const portfolio = [
-    'Sites para indústrias e metalúrgicas',
-    'Portais para prestadores de serviço',
-    'Sistemas administrativos personalizados',
-    'Projetos para pet shops, clínicas e comércios',
+    { title: 'IMEC Metalúrgica', text: 'Site institucional para empresa industrial, com foco em credibilidade e apresentação técnica.' },
+    { title: 'SPA do Doguinho', text: 'Projeto web para pet shop com estrutura moderna, serviços e evolução para sistema administrativo.' },
+    { title: 'Dashboards e sistemas', text: 'Painéis administrativos, cadastros, relatórios e rotinas sob medida para empresas.' },
+  ];
+
+  const testimonials = [
+    { name: 'Empresas técnicas', text: 'Sites pensados para apresentar serviços com clareza, autoridade e visual profissional.' },
+    { name: 'Prestadores de serviço', text: 'Estrutura focada em gerar confiança e levar o cliente direto para o WhatsApp.' },
+    { name: 'Comércios locais', text: 'Presença digital moderna para facilitar divulgação, orçamento e atendimento.' },
+  ];
+
+  const stats = [
+    { value: '100%', label: 'Responsivo' },
+    { value: '24h', label: 'Contato via WhatsApp' },
+    { value: 'SEO', label: 'Estrutura inicial' },
+    { value: 'Premium', label: 'Visual profissional' },
   ];
 
   const steps = [
@@ -101,6 +113,12 @@ function App() {
         </div>
       </section>
 
+      <section className="stats-band">
+        <div className="container stats-grid">
+          {stats.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+        </div>
+      </section>
+
       <section id="servicos" className="section">
         <div className="container">
           <div className="section-title">
@@ -157,18 +175,37 @@ function App() {
         </div>
       </section>
 
-      <section id="portfolio" className="section">
-        <div className="container portfolio-grid">
-          <div>
-            <div className="section-title left">
-              <span>Portfólio</span>
-              <h2>Projetos pensados para empresas reais.</h2>
-            </div>
-            <p className="muted">Desenvolvimento com foco em credibilidade, clareza, velocidade e geração de contatos comerciais.</p>
+      <section id="portfolio" className="section portfolio-section">
+        <div className="container">
+          <div className="section-title">
+            <span>Portfólio</span>
+            <h2>Projetos pensados para empresas reais.</h2>
           </div>
-          <div className="portfolio-list">
+          <div className="portfolio-cards">
             {portfolio.map((item) => (
-              <div key={item}><Star size={18} /> {item}</div>
+              <article key={item.title}>
+                <div className="portfolio-thumb"><MonitorSmartphone /></div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section testimonials-section dark-section">
+        <div className="container">
+          <div className="section-title">
+            <span>Confiança</span>
+            <h2>Comunicação profissional para gerar mais oportunidades.</h2>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((item) => (
+              <article key={item.name}>
+                <div className="stars">★★★★★</div>
+                <p>{item.text}</p>
+                <strong>{item.name}</strong>
+              </article>
             ))}
           </div>
         </div>
